@@ -1,2 +1,6 @@
 # RandomScripts
 Repository for random scripts that I make. 
+
+## AR Cloak
+
+This is a AR Invisibility code for all my fellow Potter-Heads ! Works via Open-CV. Initially I had this confined for just green color but I just modified it to support multiple and a range of color that the user can select. Have fun !

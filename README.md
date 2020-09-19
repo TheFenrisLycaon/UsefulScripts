@@ -15,4 +15,4 @@ This is a Sudoku code for all the riddle fans out there ! Ummm... don't worry if
 
 ### Snowflake
 
-Making a snowflake in python using turtlr module and the [KOCH CURVE !!!](https://en.wikipedia.org/wiki/Koch_snowflake#:~:text=The%20Koch%20snowflake%20(also%20known,fractals%20to%20have%20been%20described.))
+Making a snowflake in python using turtle module and the [KOCH CURVE !!!](https://en.wikipedia.org/wiki/Koch_snowflake#:~:text=The%20Koch%20snowflake%20(also%20known,fractals%20to%20have%20been%20described.))

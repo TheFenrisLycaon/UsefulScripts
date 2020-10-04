@@ -9,7 +9,7 @@ This is a AR Invisibility code for all my fellow Potter-Heads ! Works via Open-C
 
 This is a Sudoku code for all the riddle fans out there ! Ummm... don't worry if you get stuck just hit 'SPACE' and it will solve itself for you !
 
-`For techies :: It uses the back-tracking algorithm.`
+`For techies :: It used the back-tracking algorithm.`
 [Read more about it here.](https://en.wikipedia.org/wiki/Backtracking)
 
 

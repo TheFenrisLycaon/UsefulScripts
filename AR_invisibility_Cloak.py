@@ -11,7 +11,7 @@ cap = cv2.VideoCapture(0)
 time.sleep(3)
 background = 0
 
-def nothing():
+def nothing(poop):
 	pass
 
 for i in range(30):

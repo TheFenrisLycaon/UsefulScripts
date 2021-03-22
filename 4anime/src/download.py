@@ -19,8 +19,16 @@ def down():
             print("Not Found")
         else:
             os.system(f'curl {i} -o { path + name[-1] }.mp4')
+            k.remove(i)
+
+        return k
+
+def update(k):
+    with open(DOWNLOAD_DIR+"q.txt", 'w') as f:
+        for i in k:
+            f.write(i+'\n')
+    f.close()
 
 
-
-
-down()
+k = down()
+update(k)

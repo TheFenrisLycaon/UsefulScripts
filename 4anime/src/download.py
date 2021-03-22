@@ -1,10 +1,11 @@
+from pathlib import Path
 import os
 
-DOWNLOAD_DIR = "./Downloads/"
+DOWNLOAD_DIR = str(Path.home()) +  "/Downloads/Anime/"
 
 
 def down():
-    with open('./Downloads/q.txt', 'r') as f:
+    with open(DOWNLOAD_DIR + 'q.txt', 'r') as f:
         k = f.readlines()
     for i in k:
         i = i.strip('\n')

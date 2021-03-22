@@ -3,7 +3,9 @@ from lxml import html
 import sys
 import bs4
 import requests
+from pathlib import Path
 
+DOWNLOAD_DIR =  str(Path.home()) + '/Downloads/Anime/'
 
 def getURL():
     if len(sys.argv) < 2:
@@ -19,7 +21,7 @@ def generation(link, episodes):
     if res == -1:
         print("We don't support this format, please check documentation")
     else:
-        with open('./Downloads/q.txt', 'a') as f:
+        with open(DOWNLOAD_DIR + 'q.txt', 'a') as f:
             for i in res:
                 f.write(i+'\n')
         f.close()

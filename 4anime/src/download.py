@@ -17,7 +17,7 @@ def down():
         if '404' in size:
             print("Not Found")
         else:
-            os.system   (f'curl {i} -o { path + name[-1] }.mp4')
+            os.system(f'curl {i} -o { path + name[-1] }.mp4')
 
 
 

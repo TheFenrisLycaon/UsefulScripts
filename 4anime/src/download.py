@@ -8,6 +8,7 @@ def down():
     with open(DOWNLOAD_DIR + 'q.txt', 'r') as f:
         k = f.readlines()
     for i in k:
+        j = i
         i = i.strip('\n')
         name = i.split('/')
         print(f"Downloading Episode Number ::\t {name[-1]}")
@@ -19,7 +20,7 @@ def down():
             print("Not Found")
         else:
             os.system(f'curl {i} -o { path + name[-1] }.mp4')
-            k.remove(i)
+            k.remove(j)
 
         return k
 
@@ -30,5 +31,8 @@ def update(k):
     f.close()
 
 
-k = down()
-update(k)
+try:
+    k = down()
+    update(k)
+except Exception:
+    print("No files to download.")

@@ -5,7 +5,8 @@ import bs4
 import requests
 from pathlib import Path
 
-DOWNLOAD_DIR =  str(Path.home()) + '/Downloads/Anime/'
+DOWNLOAD_DIR = str(Path.home()) + '/Downloads/Anime/'
+
 
 def getURL():
     if len(sys.argv) < 2:
@@ -21,9 +22,24 @@ def generation(link, episodes):
     if res == -1:
         print("We don't support this format, please check documentation")
     else:
-        with open(DOWNLOAD_DIR + 'q.txt', 'a') as f:
-            for i in res:
-                f.write(i+'\n')
+        try:
+            with open(DOWNLOAD_DIR + 'q.txt', 'r') as f:
+                existing = f.readlines()
+            f.close()
+        except Exception:
+            existing = []
+
+        for i in existing:
+            i = i.strip('\n')
+
+        for i in res :
+            if i not in existing:
+                existing.append(i)
+
+
+        with open(DOWNLOAD_DIR + 'q.txt', 'w+') as f:
+            for i in existing:
+                f.writelines(i+'\n')
         f.close()
 
 

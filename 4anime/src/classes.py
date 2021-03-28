@@ -84,9 +84,12 @@ class Generator:
         else:
             return -1
 
+headers = {
+    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36',
+    }
 
 def getLink(URL, i=1):
-    page = requests.get(URL)
+    page = requests.get(URL, headers=headers)
     soup_main = bs4.BeautifulSoup(page.text, 'html.parser')
     title = soup_main.find('p', {'class': 'single-anime-desktop'}).text
     chap = soup_main.find('ul', {'class': 'episodes range active'})

@@ -4,9 +4,10 @@ import sys
 import bs4
 import requests
 from pathlib import Path
+import os
 
 DOWNLOAD_DIR = str(Path.home()) + '/Downloads/Anime/'
-
+os.mkdir(DOWNLOAD_DIR)
 
 def getURL():
     if len(sys.argv) < 2:

@@ -10,6 +10,15 @@ __pycache__/
 
 # C extensions
 *.so
+__pycache__/
+Pipfile.lock
+tmp/
+resume.pdf
+htmlcov/
+*.egg-*
+.tox/
+.coverage
+mutpy_report/
 
 # Distribution / packaging
 .Python

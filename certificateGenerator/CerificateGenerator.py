@@ -6,8 +6,8 @@ import sys
 def makeCerti(name, topic=''):
     img = Image.open('./src/certi.png')
     draw = ImageDraw.Draw(img)
-    spaces = ' '*((THRESHOLD - len(name))//2)
-    draw.text((1200, 1220), spaces+f"{name}", (0, 0, 0), FONT)
+    spaces = ' ' * ((THRESHOLD - len(name)) // 2)
+    draw.text((1200, 1220), spaces + f"{name}", (0, 0, 0), FONT)
     # draw.text((635, 1510), f'{topic}.', (0, 0, 0), FONT_TOPIC)
     impdf = img.convert('RGB')
     img.save('./certi/{}.png'.format(name.strip()))
@@ -42,8 +42,8 @@ def fromList():
             try:
                 # makeCerti(maintainThreshold(name[i]), topic[i])
                 makeCerti(maintainThreshold(name[i]))
-            except:
-                pass
+            except Exception as e:
+                print(e)
 
     else:
         print("Enter names in the list and try again.")

@@ -1,38 +1,37 @@
 from pathlib import Path
 import os
+import sys
 
-DOWNLOAD_DIR = str(Path.home()) +  "/Downloads/Anime/"
+DOWNLOAD_DIR = str(Path.home()) + "/Downloads/Anime/"
 
 
-def down():
-    with open(DOWNLOAD_DIR + 'q.txt', 'r') as f:
-        k = f.readlines()
-    for i in k:
-        j = i
-        i = i.strip('\n')
-        name = i.split('/')
-        print(f"Downloading Episode Number ::\t {name[-1]}")
+def down(filename):
+    global links
+    with open(filename, 'r') as f:
+        links = f.readlines()
+    for link in links:
+        j = link
+        link = link.strip('\n')
+        name = link.split('/')
         os.makedirs(DOWNLOAD_DIR + name[-2], exist_ok=True)
         path = DOWNLOAD_DIR + name[-2] + '/'
-        # os.system(f'curl {i} -o { path + name[-1] }.mp4')
-        size = os.popen(f'curl -sI {i}').read()
-        if '404' in size:
-            print("Not Found")
-        else:
-            os.system(f'curl {i} -o { path + name[-1] }.mp4')
-            k.remove(j)
+        os.system(f'wget {link} -cP {path}')
+        links.remove(j)
 
-        return k
-
-def update(k):
+def update(links):
     with open(DOWNLOAD_DIR+"q.txt", 'w') as f:
-        for i in k:
-            f.write(i+'\n')
+        f.writelines(links)
     f.close()
 
 
 try:
-    k = down()
-    update(k)
-except Exception:
-    print("No files to download.")
+    if len(sys.argv) > 1:
+        fName = sys.argv[-1]
+    else:
+        fName = input("Enter download list path::\t")
+    down(fName)
+except Exception as e:
+    # print("No files to download.")
+    print(e)
+
+update(links)

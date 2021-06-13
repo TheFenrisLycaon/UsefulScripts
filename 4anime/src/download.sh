@@ -1,4 +1,4 @@
 #!/bin/bash
 while read file; do
-    wget ${file} -b
+    wget ${file} -cbP ~/Downloads/Anime/
 done < k.txt

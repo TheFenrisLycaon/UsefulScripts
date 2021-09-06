@@ -1,5 +1,13 @@
+#~/Apps/anaconda3/bin.python
 import time
-import os
+import subprocess
+from sys import argv
 
-time.sleep(int(input('Enter time (in seconds)::\t')))
-os.system('aplay ./src/alarm.wav')
+if len(argv) <= 1:
+    time.sleep(int(input('Enter time (in seconds)::\t')))
+else:
+    time.sleep(int(argv[-1]))
+
+proc = subprocess.Popen(['aplay', './src/alarm.wav'])
+input()
+proc.kill()

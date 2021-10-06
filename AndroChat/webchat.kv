@@ -1,0 +1,81 @@
+<MyRoot>
+
+    ip_text: ip_text
+    username_text: username_text
+    connect_btn: connect_btn
+    chat_text: chat_text
+    message_text: message_text
+    send_btn: send_btn
+    connection_grid: connection_grid
+
+    orientation: 'vertical'
+    GridLayout:
+        id: connection_grid
+        rows: 1
+        columns: 2
+        padding: 10
+        spacing: 10
+        height: 75
+        size_hint: (1,None)
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: "IP:"
+                font_size: 30
+                color: 0.92, 0.45, 0, 1
+            TextInput:
+                id: ip_text
+                size_hint: (1,None)
+                height: 25
+                font_size: 30
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: "Username:"
+                font_size: 30
+                color: 0.92, 0.45, 0, 1
+            TextInput:
+                id: username_text
+                size_hint: (1,None)
+                height: 25
+                font_size: 30
+    Button:
+        id: connect_btn
+        text: "Connect"
+        font_size: 32
+        size: 75, 25
+        size_hint: (1, None)
+        height: 70
+        on_press: root.connectToServer()
+
+    Label:
+        text: "Chat History"
+        font_size: 40
+        height: 25
+        size_hint: (1, None)
+        color: 0.92, 0.45, 0, 1
+    TextInput:
+        id: chat_text
+        size_hint: (1, None)
+        height: 425
+        multiline: True
+        font_size: 32
+        readonly: True
+        disabled: True
+    Label:
+        text: "Your Message"
+        font_size: 30
+        height: 25
+        size_hint: (1, None)
+        color: 0.92, 0.45, 0, 1
+    TextInput:
+        id: message_text
+        font_size: 30
+        disabled: True
+    Button:
+        id: send_btn
+        text: "Send!"
+        font_size: 32
+        size: 75, 25
+        on_press: root.sendMessage()
+        disabled: True

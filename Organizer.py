@@ -4,29 +4,102 @@ from pathlib import Path
 
 DIRECTORIES = {
     "HTML": [".html5", ".html", ".htm", ".xhtml"],
-    "Imgaes": [".jpeg", ".jpg", ".tiff", ".gif", ".bmp", ".png", ".bpg", "svg",
-               ".heif", ".psd"],
-    "Videos": [".avi", ".flv", ".wmv", ".mov", ".mp4", ".webm", ".vob", ".mng",
-               ".qt", ".mpg", ".mpeg", ".3gp", ".mkv"],
-    "Documents": [".oxps", ".epub", ".pages", ".docx", ".doc", ".fdf", ".ods",
-                  ".odt", ".pwi", ".xsn", ".xps", ".dotx", ".docm", ".dox",
-                  ".rvg", ".rtf", ".rtfd", ".wpd", ".xls", ".xlsx", ".ppt",
-                  "pptx", ".pdf"],
-    "Archives": [".a", ".ar", ".cpio", ".iso", ".tar", ".gz", ".rz", ".7z",
-                 ".dmg", ".rar", ".xar", ".zip"],
-    "Audio": [".aac", ".aa", ".aac", ".dvf", ".m4a", ".m4b", ".m4p", ".mp3",
-              ".msv", "ogg", "oga", ".raw", ".vox", ".wav", ".wma"],
+    "Imgaes": [
+        ".jpeg",
+        ".jpg",
+        ".tiff",
+        ".gif",
+        ".bmp",
+        ".png",
+        ".bpg",
+        "svg",
+        ".heif",
+        ".psd",
+    ],
+    "Videos": [
+        ".avi",
+        ".flv",
+        ".wmv",
+        ".mov",
+        ".mp4",
+        ".webm",
+        ".vob",
+        ".mng",
+        ".qt",
+        ".mpg",
+        ".mpeg",
+        ".3gp",
+        ".mkv",
+    ],
+    "Documents": [
+        ".oxps",
+        ".epub",
+        ".pages",
+        ".docx",
+        ".doc",
+        ".fdf",
+        ".ods",
+        ".odt",
+        ".pwi",
+        ".xsn",
+        ".xps",
+        ".dotx",
+        ".docm",
+        ".dox",
+        ".rvg",
+        ".rtf",
+        ".rtfd",
+        ".wpd",
+        ".xls",
+        ".xlsx",
+        ".ppt",
+        "pptx",
+        ".pdf",
+    ],
+    "Archives": [
+        ".a",
+        ".ar",
+        ".cpio",
+        ".iso",
+        ".tar",
+        ".gz",
+        ".rz",
+        ".7z",
+        ".dmg",
+        ".rar",
+        ".xar",
+        ".zip",
+    ],
+    "Audio": [
+        ".aac",
+        ".aa",
+        ".aac",
+        ".dvf",
+        ".m4a",
+        ".m4b",
+        ".m4p",
+        ".mp3",
+        ".msv",
+        "ogg",
+        "oga",
+        ".raw",
+        ".vox",
+        ".wav",
+        ".wma",
+    ],
     "Text": [".txt", ".in", ".out"],
     "Python": [".py"],
     "XML": [".xml"],
     "Executables": [".exe"],
     "Shell": [".sh"],
-    "Others": []
+    "Others": [],
 }
 
-FILE_FORMATS = {entryFormat: directory
-                for directory, FILE_FORMATS in DIRECTORIES.items()
-                for entryFormat in FILE_FORMATS}
+FILE_FORMATS = {
+    entryFormat: directory
+    for directory, FILE_FORMATS in list(DIRECTORIES.items())
+    for entryFormat in FILE_FORMATS
+}
 
 
 def organize_junk():
@@ -43,8 +116,10 @@ def organize_junk():
             if dir.is_dir():
                 os.rmdir(dir)
             else:
-                os.rename(os.getcwd() + '/' + str(Path(dir)),
-                          os.getcwd() + '/Other/' + str(Path(dir)))
+                os.rename(
+                    os.getcwd() + "/" + str(Path(dir)),
+                    os.getcwd() + "/Other/" + str(Path(dir)),
+                )
         except:
             pass
 

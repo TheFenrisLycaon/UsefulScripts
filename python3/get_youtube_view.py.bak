@@ -1,0 +1,22 @@
+import time
+
+from selenium import webdriver
+
+count = int(input("Number of times to be repeated: "))
+url = input("Enter the URL : ")
+print("Length of video:")
+minutes = int(input("Minutes "))
+seconds = int(input("Seconds "))
+
+refreshrate = minutes * 60 + seconds
+
+driver = webdriver.Chrome()
+
+if url.startswith("https://"):
+    driver.get(url)
+else:
+    driver.get("https://" + url)
+
+for i in range(count):
+    time.sleep(refreshrate)
+    driver.refresh()

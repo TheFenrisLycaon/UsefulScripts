@@ -19,6 +19,6 @@ from django.urls import path
 from Amazon import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('display/', views.display, name='display'),
+    path("admin/", admin.site.urls),
+    path("display/", views.display, name="display"),
 ]

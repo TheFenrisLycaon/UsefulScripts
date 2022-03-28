@@ -16,14 +16,15 @@ class MyRoot(BoxLayout):
 
     def sendMessage(self):
         client.send(
-            f"{self.username_text.text} ::\t{self.message_text.text}".encode('utf-8'))
+            f"{self.username_text.text} ::\t{self.message_text.text}".encode("utf-8")
+        )
 
     def connectToServer(self):
         if self.username_text != "":
             client.connect((self.ip_text.text, 9999))
-            message = client.recv(1024).decode('utf-8')
+            message = client.recv(1024).decode("utf-8")
             if message == "Username:":
-                client.send(self.username_text.text.encode('utf-8'))
+                client.send(self.username_text.text.encode("utf-8"))
                 self.send_btn.disabled = 0
                 self.message_text.disabled = 0
                 self.connect_btn.disabled = 1
@@ -48,7 +49,7 @@ class MyRoot(BoxLayout):
         stop = 0
         while not stop:
             try:
-                message = client.recv(1024).decode('utf-8')
+                message = client.recv(1024).decode("utf-8")
                 self.chat_text += message + "\n"
             except Exception as e:
                 print(e)
@@ -57,7 +58,6 @@ class MyRoot(BoxLayout):
 
 
 class WebChat(App):
-
     def build(self):
         return MyRoot()
 

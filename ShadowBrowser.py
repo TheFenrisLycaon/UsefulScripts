@@ -5,7 +5,6 @@ from PyQt5.QtWebEngineWidgets import *
 
 
 class ShadowBrowser(QMainWindow):
-
     def __init__(self):
 
         self.window = QWidget()
@@ -33,8 +32,7 @@ class ShadowBrowser(QMainWindow):
 
         self.browser = QWebEngineView()
 
-        self.go_btn.clicked.connect(
-            lambda: self.navigate(self.url_bar.toPlainText()))
+        self.go_btn.clicked.connect(lambda: self.navigate(self.url_bar.toPlainText()))
         self.back_btn.clicked.connect(self.browser.back)
         self.forwd_btn.clicked.connect(self.browser.forward)
 

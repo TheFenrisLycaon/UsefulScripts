@@ -11,4 +11,4 @@ def index(request):
 
 def display(request):
     query_results = Amazon.objects.all()
-    return render(request, 'main.html', {'obj': query_results})
+    return render(request, "main.html", {"obj": query_results})

@@ -1,6 +1,6 @@
 import os
 
-path = str(input())
+path = str(eval(input()))
 files = os.listdir(path)
 
 # for i in files:
@@ -9,9 +9,9 @@ files = os.listdir(path)
 # print(files)
 
 for i in files:
-    j = i.find('-')
-    k = i[j+2:]
-    os.rename(path+i , path+k)
+    j = i.find("-")
+    k = i[j + 2 :]
+    os.rename(path + i, path + k)
 
 
 # for i in files:

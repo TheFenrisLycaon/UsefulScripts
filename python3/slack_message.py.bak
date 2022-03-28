@@ -1,0 +1,15 @@
+from __future__ import print_function
+import json
+import urllib.request
+
+webhook_url = (
+    "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
+)
+slack_data = {"text": "Hi Sarath Kaul"}
+response = urllib.request.Request(
+    webhook_url,
+    data=json.dumps(slack_data),
+    headers={"Content-Type": "application/json"},
+)
+
+print(response)
